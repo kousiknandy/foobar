@@ -61,7 +61,7 @@ def solution(src, dest):
         bfsqueue.extend(possible_moves)
 
 
-print(solution(0, 1))
-print(solution(19, 36))
-print(solution(56, 44))
+# print(solution(0, 1))
+# print(solution(19, 36))
+# print(solution(56, 44))
 

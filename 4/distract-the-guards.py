@@ -77,23 +77,23 @@ def solution(banana_list):
     return guardcount - 2 * pairs
 
 
-print solution([1, 1]) #2
-print solution([1, 7, 3, 21, 13, 19]) #0
-#exit()
-print solution([1]) #1
-print solution([1, 7, 1, 1]) #4
+# print solution([1, 1]) #2
+# print solution([1, 7, 3, 21, 13, 19]) #0
+# #exit()
+# print solution([1]) #1
+# print solution([1, 7, 1, 1]) #4
     
-print solution([1,4]) #0
-print solution([(2**30)-1, 2,1,6]) #0
-print solution([3,5,1,4]) #0
-print solution([1,1,2,5]) #0
+# print solution([1,4]) #0
+# print solution([(2**30)-1, 2,1,6]) #0
+# print solution([3,5,1,4]) #0
+# print solution([1,1,2,5]) #0
 
-print solution([3,5]) #2
-print solution([1,1]) #2
-print solution([9,15]) #2
-print solution([1,1,1,6]) #2
+# print solution([3,5]) #2
+# print solution([1,1]) #2
+# print solution([9,15]) #2
+# print solution([1,1,1,6]) #2
 
-print solution([3, 3, 2, 6, 6]) #1
-print solution([1,7, 21]) #1
-print solution([0]) #1
+# print solution([3, 3, 2, 6, 6]) #1
+# print solution([1,7, 21]) #1
+# print solution([0]) #1
 

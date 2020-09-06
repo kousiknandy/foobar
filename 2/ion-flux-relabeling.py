@@ -61,5 +61,5 @@ def solution(h, q):
 # print(parent_po(28))
 # print(parent_po(7))
 
-print(solution(3, [7,3,5,1]))
-print(solution(5, [19,14,28]))
+# print(solution(3, [7,3,5,1]))
+# print(solution(5, [19,14,28]))

@@ -22,8 +22,8 @@ def solution(n):
     return steps(n) - 1
 
 
-print(solution(3))
-print(solution(25))
-print(solution(200))
-print(solution(500))
+# print(solution(3))
+# print(solution(25))
+# print(solution(200))
+# print(solution(500))
 

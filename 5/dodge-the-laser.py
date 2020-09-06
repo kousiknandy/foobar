@@ -52,7 +52,7 @@ def solution(s):
     ans = A001951(n, a000217, a097508)
     return str(ans)
 
-print(solution(5)) #19
-print(solution(77)) #4208
+# print(solution(5)) #19
+# print(solution(77)) #4208
 
     
