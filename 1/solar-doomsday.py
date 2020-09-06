@@ -1,0 +1,26 @@
+def isqrt(n):
+    x = n
+    y = (x + 1) // 2
+    while y < x:
+        x = y
+        y = (x + n // x) // 2
+    return x
+
+def prev_square(n):
+    while n:
+        p = isqrt(n)
+        n -= p*p
+        yield p*p
+
+def solution(area):
+    return list(prev_square(area))
+
+
+print(solution(12))
+print(solution(15324))
+print(solution(100))
+print(solution(90))
+print(solution(40))
+print(solution(0))
+
+
