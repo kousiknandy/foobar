@@ -1,30 +1,7 @@
-def number(start = 1):
-    while True:
-        yield start
-        start += 1
-
-def post_order(d, s):
-    if d > 1:
-        post_order(d-1, s)
-        post_order(d-1, s)
-    r = next(s)
-    print("{:3d} {:016b}".format(r, r), d)
-    
-def printpo(height):
-    s = number(1)
-    post_order(height, s)
-
-#printpo(3)
-#print("\n")
-#printpo(4)
-#print("\n")
-#printpo(10)
-
-height = 5
-for h in range(height, 0, -1):
-    for i in range(1,2**(height-h)+1):
-        print " "*(2**h-1), (2**h-1)*i+(i-1)//2+(i-1)//4+(i-1)//8,
-    print
+# in a post-order traversal, the left subtree has the complete
+# sequence of numbers, whereas the right subtree is complicated
+# but the pattern to notice is all the elements in leftmost
+# path are 2^n-1, and the node to their right is 2^n-2
 
 def drop_msb(n):
     b = 1
@@ -32,11 +9,11 @@ def drop_msb(n):
         b += 1
     return n - 2**(b-1)
 
-print(drop_msb(100))
-print(drop_msb(10))
-print(drop_msb(64))
-print(drop_msb(1024))
-print(drop_msb(1))
+# print(drop_msb(100))
+# print(drop_msb(10))
+# print(drop_msb(64))
+# print(drop_msb(1024))
+# print(drop_msb(1))
 
 def leftmost(n):  # 2^n-1
     return (n & (n+1)) == 0
@@ -44,6 +21,12 @@ def leftmost(n):  # 2^n-1
 def right_leftmost(n):  # 2^n-2
     return ((n+1) & (n+2)) == 0
 
+# given any arbitrary node the plan is to map it to the leftmost
+# node or right node of the leftmost node. Then the parent of the
+# node is either 2n+1 or n+1 respectively. However when we map a
+# node to the left side, we need to compute treesize we lost
+# because of mapping from right to the left side, those to be
+# accumulated and added back to the final answer ...
 def parent_po(n):
     p = c = n
     treesz = 0
@@ -67,17 +50,16 @@ def solution(h, q):
         else:
             sol.append(parent_po(n))
     return sol
-
     
 
-print(parent_po(10))
-print(parent_po(14))
-print(parent_po(5))
-print(parent_po(8))
-print(parent_po(19))
-print(parent_po(14))
-print(parent_po(28))
-print(parent_po(7))
+# print(parent_po(10))
+# print(parent_po(14))
+# print(parent_po(5))
+# print(parent_po(8))
+# print(parent_po(19))
+# print(parent_po(14))
+# print(parent_po(28))
+# print(parent_po(7))
 
 print(solution(3, [7,3,5,1]))
 print(solution(5, [19,14,28]))

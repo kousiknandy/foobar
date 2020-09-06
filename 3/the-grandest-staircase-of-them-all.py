@@ -1,4 +1,9 @@
-
+# if we build stairs from the bottom then at every step we need to
+# consume at least steps number of bricks. Then the problem reduces
+# to bricks-steps bricks left, and one less steps to build. Also
+# count the number of ways the Also like Fibonacchi we compute the
+# lesser results multiple time so a memo can catch them and speed
+# up.
 def steps(bricks, start=1):
     global mem
     if bricks == 0:

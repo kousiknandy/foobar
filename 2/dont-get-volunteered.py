@@ -1,9 +1,17 @@
+# in Bengali, a chessboard knight movement is called 2.5 moves
+# because it takes 2 steps in one direction and 1 in perpendicular
+
+# Since the chessboard is represented as 0-64 instead of (x,y) we
+# need to check are we on the board or fell off the edges?
 def ok_row(p, c):
     return p // 8 == c // 8
 
 def ok_col(p, c):
     return c // 8 >= 0 and c // 8 <= 7
 
+# there are 8 possible moves, each move is split into 2, and their
+# offset to the previous positions. Also after each move we check
+# if the move caused us to fall off the edge, and discard if so.
 moves = [ ( -2, ok_row, -8, ok_col),
           ( -2, ok_row,  8, ok_col),
           (-16, ok_col, -1, ok_row),
@@ -14,6 +22,7 @@ moves = [ ( -2, ok_row, -8, ok_col),
           ( 16, ok_col,  1, ok_row),
 ]
 
+# generate the legal moves given a position
 def next_move(c):
     for m in moves:
         p = c
@@ -32,6 +41,10 @@ def next_move(c):
 
 visited = [False] * 64
 
+# the solution involves a BFS search for dest from the src: visit
+# all unseen cells from the start, append <moves, depth++> to queue,
+# since a Knight can tour a board we're sure we'll hit the dest
+# sooner or later. 
 def solution(src, dest):
     bfsqueue = [(src, 0)]
     while len(bfsqueue) > 0:
