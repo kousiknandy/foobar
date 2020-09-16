@@ -71,7 +71,7 @@ gcd_table = [
 
 def gcd(a, b):
     try:
-        return gcd_table(a-1, b-1)
+        return gcd_table[a-1][b-1]
     except:
         while b:
             a, b = b, a % b
